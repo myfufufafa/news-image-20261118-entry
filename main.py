@@ -29,3 +29,16 @@ shutil.copyfile(HERE / "entry.png", OUTPUT_DIR / "entry.png")
 # No timestamps, no randomness, no network: the same input file always
 # produces the same output bytes, so both graded runs agree.
 assert (OUTPUT_DIR / "entry.png").stat().st_size == (HERE / "entry.png").stat().st_size
+
+import hashlib
+
+
+def _sha256(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(65536), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+assert _sha256(HERE / "entry.png") == _sha256(OUTPUT_DIR / "entry.png")
