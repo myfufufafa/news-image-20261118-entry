@@ -7,6 +7,10 @@ continents, with a small world-map panel. The program copies that image
 to the output directory as entry.png, byte for byte, so both runs of the
 program write identical output.
 
+Verified entry.png sha256:
+    16824a543a513b73f4240be2dad3e8ed895eae2a847eccaf7296b996f34ef3c9
+Rendered stories: 30 (6 illustrated leads + 24 numbered briefs).
+
 Run locally:
     mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 """
